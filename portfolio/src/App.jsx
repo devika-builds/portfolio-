@@ -25,11 +25,11 @@ const MONO =
    DEPLOY URLS — Update these once projects are on Vercel
    ═══════════════════════════════════════════════════════════════ */
 const DEPLOY_URLS = {
-  "ea-control-center": "",
-  "zapier-visualizer": "",
-  "schedule-conflict-resolver": "",
-  "ops-analytics-dashboard": "",
-  "ea-template-library": "",
+  "ea-control-center": "https://ea-control-center.vercel.app",
+  "zapier-visualizer": "https://zapier-visualizer.vercel.app",
+  "schedule-conflict-resolver": "https://scheduleconflictresolver.vercel.app",
+  "ops-analytics-dashboard": "https://ops-analytics-dashboard.vercel.app",
+  "ea-template-library": "https://ea-template-library.vercel.app",
 };
 
 /* ═══════════════════════════════════════════════════════════════
@@ -1623,7 +1623,7 @@ function Contact() {
         >
           {/* Email */}
           <a
-            href="mailto:devikaramkaran@hotmail.com"
+            href="mailto:devikaramkaran.ops@gmail.com"
             style={{
               display: "flex",
               alignItems: "center",
@@ -1653,7 +1653,7 @@ function Contact() {
               <rect x="2" y="4" width="20" height="16" rx="2" />
               <path d="M22 7l-10 6L2 7" />
             </svg>
-            devikaramkaran@hotmail.com
+            devikaramkaran.ops@gmail.com
           </a>
 
           {/* LinkedIn */}
