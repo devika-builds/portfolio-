@@ -128,21 +128,184 @@ const PROJECTS = [
 ];
 
 const TOOLS = [
-  { name: "Google Workspace", color: "#4285F4", letter: "G", shape: "google" },
-  { name: "Microsoft 365", color: "#D83B01", letter: "M", shape: "microsoft" },
-  { name: "Slack", color: "#4A154B", letter: "S", shape: "slack" },
-  { name: "Zoom", color: "#2D8CFF", letter: "Z", shape: "zoom" },
-  { name: "Microsoft Teams", color: "#6264A7", letter: "T", shape: "teams" },
-  { name: "Asana", color: "#F06A6A", letter: "A", shape: "asana" },
-  { name: "Trello", color: "#0079BF", letter: "T", shape: "trello" },
-  { name: "HubSpot", color: "#FF7A59", letter: "H", shape: "hubspot" },
-  { name: "Zapier", color: "#FF4F00", letter: "Z", shape: "zapier" },
-  { name: "Google Sheets", color: "#0F9D58", letter: "S", shape: "sheets" },
-  { name: "Excel", color: "#217346", letter: "X", shape: "excel" },
-  { name: "Google Drive", color: "#F4B400", letter: "D", shape: "drive" },
-  { name: "Dropbox", color: "#0061FF", letter: "D", shape: "dropbox" },
-  { name: "OneDrive", color: "#0078D4", letter: "O", shape: "onedrive" },
-  { name: "Hubstaff", color: "#3CB371", letter: "H", shape: "hubstaff" },
+  {
+    name: "Google Workspace",
+    color: "#4285F4",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
+        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+        <path d="M5.84 14.09A6.68 6.68 0 015.5 12c0-.72.13-1.43.34-2.09V7.07H2.18A11 11 0 001 12c0 1.78.43 3.46 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Microsoft 365",
+    color: "#D83B01",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <rect x="1" y="1" width="10" height="10" rx="1.5" fill="#F25022"/>
+        <rect x="13" y="1" width="10" height="10" rx="1.5" fill="#7FBA00"/>
+        <rect x="1" y="13" width="10" height="10" rx="1.5" fill="#00A4EF"/>
+        <rect x="13" y="13" width="10" height="10" rx="1.5" fill="#FFB900"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Slack",
+    color: "#4A154B",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M5.042 15.165a2.528 2.528 0 01-2.52 2.523A2.528 2.528 0 010 15.165a2.527 2.527 0 012.522-2.52h2.52v2.52zm1.271 0a2.527 2.527 0 012.521-2.52 2.527 2.527 0 012.521 2.52v6.313A2.528 2.528 0 018.834 24a2.528 2.528 0 01-2.521-2.522v-6.313z" fill="#E01E5A"/>
+        <path d="M8.834 5.042a2.528 2.528 0 01-2.521-2.52A2.528 2.528 0 018.834 0a2.528 2.528 0 012.521 2.522v2.52H8.834zm0 1.271a2.527 2.527 0 012.521 2.521 2.527 2.527 0 01-2.521 2.521H2.522A2.528 2.528 0 010 8.834a2.528 2.528 0 012.522-2.521h6.312z" fill="#36C5F0"/>
+        <path d="M18.956 8.834a2.528 2.528 0 012.522-2.521A2.528 2.528 0 0124 8.834a2.528 2.528 0 01-2.522 2.521h-2.522V8.834zm-1.27 0a2.528 2.528 0 01-2.523 2.521 2.527 2.527 0 01-2.52-2.521V2.522A2.527 2.527 0 0115.163 0a2.528 2.528 0 012.523 2.522v6.312z" fill="#2EB67D"/>
+        <path d="M15.163 18.956a2.528 2.528 0 012.523 2.522A2.528 2.528 0 0115.163 24a2.527 2.527 0 01-2.52-2.522v-2.522h2.52zm0-1.27a2.527 2.527 0 01-2.52-2.523 2.527 2.527 0 012.52-2.52h6.315A2.528 2.528 0 0124 15.163a2.528 2.528 0 01-2.522 2.523h-6.315z" fill="#ECB22E"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Zoom",
+    color: "#2D8CFF",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M24 12c0 6.627-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0s12 5.373 12 12z" fill="#2D8CFF"/>
+        <path d="M5.5 8.5a1.5 1.5 0 011.5-1.5h6a1.5 1.5 0 011.5 1.5v5.5a1.5 1.5 0 01-1.5 1.5H7a1.5 1.5 0 01-1.5-1.5V8.5z" fill="#fff"/>
+        <path d="M15 10.2l3.5-2.1v7.8L15 13.8V10.2z" fill="#fff"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Microsoft Teams",
+    color: "#6264A7",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M20.625 6.75h-5.25a.375.375 0 00-.375.375v8.25c0 .207.168.375.375.375h5.25A.375.375 0 0021 15.375v-8.25a.375.375 0 00-.375-.375z" fill="#7B83EB"/>
+        <circle cx="18" cy="4.5" r="2.25" fill="#7B83EB"/>
+        <path d="M14.25 6H3.75a.75.75 0 00-.75.75V17.25c0 .414.336.75.75.75h10.5a.75.75 0 00.75-.75V6.75a.75.75 0 00-.75-.75z" fill="#6264A7"/>
+        <path d="M11.25 9.75H6.75v1.5h1.5v4.5h1.5v-4.5h1.5v-1.5z" fill="#fff"/>
+        <circle cx="22" cy="6" r="2" fill="#5059C9"/>
+        <path d="M22 8.5h-3a.5.5 0 00-.5.5v5.5a.5.5 0 00.5.5h3a.5.5 0 00.5-.5V9a.5.5 0 00-.5-.5z" fill="#5059C9"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Asana",
+    color: "#F06A6A",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="6.5" r="4.5" fill="#F06A6A"/>
+        <circle cx="5" cy="16.5" r="4.5" fill="#F06A6A"/>
+        <circle cx="19" cy="16.5" r="4.5" fill="#F06A6A"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Trello",
+    color: "#0079BF",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <rect x="1" y="1" width="22" height="22" rx="3" fill="#0079BF"/>
+        <rect x="4" y="4" width="6.5" height="14" rx="1.2" fill="#fff"/>
+        <rect x="13.5" y="4" width="6.5" height="9" rx="1.2" fill="#fff"/>
+      </svg>
+    ),
+  },
+  {
+    name: "HubSpot",
+    color: "#FF7A59",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M17.07 10.29V7.69a2.07 2.07 0 001.18-1.87 2.1 2.1 0 00-4.2 0c0 .82.48 1.53 1.17 1.87v2.6a5.1 5.1 0 00-2.42 1.16L6.13 6.56a2.36 2.36 0 00.12-.73 2.25 2.25 0 10-2.25 2.25c.38 0 .73-.1 1.04-.27l5.58 4.84a5.1 5.1 0 00-.72 2.62 5.15 5.15 0 005.15 5.15 5.15 5.15 0 005.15-5.15 5.13 5.13 0 00-3.13-4.98zm-2.02 7.37a2.4 2.4 0 110-4.8 2.4 2.4 0 010 4.8z" fill="#FF7A59"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Zapier",
+    color: "#FF4F00",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M15.357 13.118l4.009-.005.005-2.236-4.01.005 2.836-2.835-1.58-1.579-2.836 2.835.005-4.009h-2.237l.006 4.01-2.836-2.836-1.58 1.58 2.836 2.835-4.01-.005-.005 2.236 4.01-.005-2.836 2.836 1.58 1.58 2.835-2.836-.005 4.01h2.237l-.006-4.01 2.836 2.835 1.58-1.58-2.836-2.835z" fill="#FF4F00"/>
+        <circle cx="12" cy="12" r="3" fill="#FF4F00"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Google Sheets",
+    color: "#0F9D58",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M14.5 1H5.5A1.5 1.5 0 004 2.5v19A1.5 1.5 0 005.5 23h13a1.5 1.5 0 001.5-1.5V7L14.5 1z" fill="#0F9D58"/>
+        <path d="M14.5 1v6H20" fill="#87CEAC"/>
+        <path d="M14.5 1L20 7h-5.5V1z" fill="#87CEAC"/>
+        <rect x="7" y="11" width="10" height="8" rx="0.5" fill="#fff"/>
+        <line x1="7" y1="14" x2="17" y2="14" stroke="#0F9D58" strokeWidth="0.8"/>
+        <line x1="7" y1="17" x2="17" y2="17" stroke="#0F9D58" strokeWidth="0.8"/>
+        <line x1="11.5" y1="11" x2="11.5" y2="19" stroke="#0F9D58" strokeWidth="0.8"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Excel",
+    color: "#217346",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M23 3h-9v18h9a1 1 0 001-1V4a1 1 0 00-1-1z" fill="#217346"/>
+        <path d="M14 3H2a1 1 0 00-1 1v16a1 1 0 001 1h12V3z" fill="#33C481" opacity="0.9"/>
+        <path d="M4.5 8l3 4-3 4h2.2l1.9-2.9L10.5 16h2.2l-3-4 3-4h-2.2l-1.9 2.9L6.7 8H4.5z" fill="#fff"/>
+        <line x1="17" y1="6" x2="22" y2="6" stroke="#fff" strokeWidth="0.8"/>
+        <line x1="17" y1="9" x2="22" y2="9" stroke="#fff" strokeWidth="0.8"/>
+        <line x1="17" y1="12" x2="22" y2="12" stroke="#fff" strokeWidth="0.8"/>
+        <line x1="17" y1="15" x2="22" y2="15" stroke="#fff" strokeWidth="0.8"/>
+        <line x1="17" y1="18" x2="22" y2="18" stroke="#fff" strokeWidth="0.8"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Google Drive",
+    color: "#F4B400",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M8.267 1.5L1.5 13.5h6.767L15 1.5H8.267z" fill="#0F9D58"/>
+        <path d="M22.5 13.5H8.267L15 1.5h7.233L22.5 13.5z" fill="#FBBC05" opacity="0.9"/>
+        <path d="M1.5 13.5l3.383 6h14.234l3.383-6H1.5z" fill="#4285F4"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Dropbox",
+    color: "#0061FF",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M7.124 1.5L1 5.833l5.124 4.334L12 5.833 7.124 1.5z" fill="#0061FF"/>
+        <path d="M1 14.5l6.124 4.333L12 14.5 6.124 10.167 1 14.5z" fill="#0061FF"/>
+        <path d="M12 14.5l5.124 4.333L23 14.5l-5.876-4.333L12 14.5z" fill="#0061FF"/>
+        <path d="M23 5.833L16.876 1.5 12 5.833l5.124 4.334L23 5.833z" fill="#0061FF"/>
+        <path d="M12.012 15.565l-4.888 3.268-1.236-.76v.852L12.012 23l6.124-4.075v-.852l-1.236.76-4.888-3.268z" fill="#0061FF"/>
+      </svg>
+    ),
+  },
+  {
+    name: "OneDrive",
+    color: "#0078D4",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M9.5 15.5h10a4 4 0 001.5-7.7 5.5 5.5 0 00-10.2-1.3A4.5 4.5 0 005 11a4.5 4.5 0 004.5 4.5z" fill="#0078D4"/>
+        <path d="M9.5 15.5h10a4 4 0 001.5-7.7 5.5 5.5 0 00-10.2-1.3" fill="#0364B8"/>
+        <path d="M5.5 18h12a3.5 3.5 0 001.3-6.74 4.8 4.8 0 00-8.9-1.14A3.93 3.93 0 005.5 18z" fill="#0078D4"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Hubstaff",
+    color: "#3CB371",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="10" stroke="#3CB371" strokeWidth="2.5" fill="none"/>
+        <path d="M12 6v6.5l4.5 2.5" stroke="#3CB371" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    ),
+  },
 ];
 
 const CERTS = [
@@ -284,29 +447,25 @@ function ToolIcon({ tool }) {
           width: 52,
           height: 52,
           borderRadius: 14,
-          background: tool.color + "12",
-          border: `1px solid ${tool.color}25`,
+          background: tool.color + "0A",
+          border: `1px solid ${tool.color}20`,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          fontSize: 20,
-          fontWeight: 700,
-          color: tool.color,
-          fontFamily: FONT,
           transition: "all 0.25s ease",
         }}
         onMouseEnter={(e) => {
-          e.currentTarget.style.background = tool.color + "20";
-          e.currentTarget.style.borderColor = tool.color + "45";
+          e.currentTarget.style.background = tool.color + "18";
+          e.currentTarget.style.borderColor = tool.color + "40";
           e.currentTarget.style.transform = "translateY(-2px)";
         }}
         onMouseLeave={(e) => {
-          e.currentTarget.style.background = tool.color + "12";
-          e.currentTarget.style.borderColor = tool.color + "25";
+          e.currentTarget.style.background = tool.color + "0A";
+          e.currentTarget.style.borderColor = tool.color + "20";
           e.currentTarget.style.transform = "translateY(0)";
         }}
       >
-        {tool.letter}
+        {tool.icon}
       </div>
       <span
         style={{
@@ -1621,7 +1780,6 @@ function Contact() {
             marginBottom: 40,
           }}
         >
-          {/* Email */}
           <a
             href="mailto:devikaramkaran.ops@gmail.com"
             style={{
@@ -1640,23 +1798,13 @@ function Contact() {
               transition: "all 0.25s ease",
             }}
           >
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke={COLORS.accent}
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.accent} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <rect x="2" y="4" width="20" height="16" rx="2" />
               <path d="M22 7l-10 6L2 7" />
             </svg>
             devikaramkaran.ops@gmail.com
           </a>
 
-          {/* LinkedIn */}
           <a
             href="https://www.linkedin.com/in/devika-ramkaran-b0942b2a9"
             target="_blank"
@@ -1677,18 +1825,12 @@ function Contact() {
               transition: "all 0.25s ease",
             }}
           >
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill={COLORS.accent}
-            >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill={COLORS.accent}>
               <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
             </svg>
             LinkedIn
           </a>
 
-          {/* Phone */}
           <div
             style={{
               display: "flex",
@@ -1704,29 +1846,14 @@ function Contact() {
               fontFamily: FONT,
             }}
           >
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke={COLORS.accent}
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.accent} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
             </svg>
             (868) 366-6017
           </div>
         </div>
 
-        <p
-          style={{
-            fontSize: 12,
-            color: COLORS.sage,
-            fontFamily: FONT,
-          }}
-        >
+        <p style={{ fontSize: 12, color: COLORS.sage, fontFamily: FONT }}>
           Built with React + Vite &middot; Deployed on Vercel
         </p>
       </div>
