@@ -971,10 +971,16 @@ function About() {
    PROJECT SHOWCASE — tabbed iframe viewer
    ═══════════════════════════════════════════════════════════════ */
 function ProjectShowcase() {
-  const [active, setActive] = useState(0);
+  const [openIdx, setOpenIdx] = useState(null);
   const [ref, inView] = useInView(0.1);
-  const project = PROJECTS[active];
-  const url = DEPLOY_URLS[project.id];
+
+  /* lock body scroll when overlay is open */
+  useEffect(() => {
+    if (openIdx !== null) {
+      document.body.style.overflow = "hidden";
+      return () => { document.body.style.overflow = ""; };
+    }
+  }, [openIdx]);
 
   return (
     <section
@@ -1005,279 +1011,314 @@ function ProjectShowcase() {
         </h2>
       </div>
 
-      {/* Project tabs */}
+      {/* Project cards grid */}
       <div
-        className="pf-project-tabs"
+        className="pf-project-grid"
         style={{
-          display: "flex",
-          gap: 8,
-          marginBottom: 24,
-          overflowX: "auto",
-          paddingBottom: 4,
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+          gap: 20,
         }}
       >
-        {PROJECTS.map((p, i) => (
-          <button
-            key={p.id}
-            onClick={() => setActive(i)}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 8,
-              padding: "10px 18px",
-              borderRadius: 12,
-              border: `1.5px solid ${active === i ? p.color + "50" : COLORS.border}`,
-              background: active === i ? p.color + "0A" : COLORS.card,
-              color: active === i ? p.color : COLORS.textDim,
-              fontSize: 13,
-              fontWeight: active === i ? 650 : 500,
-              fontFamily: FONT,
-              cursor: "pointer",
-              transition: "all 0.25s ease",
-              whiteSpace: "nowrap",
-              flexShrink: 0,
-            }}
-          >
-            {p.icon}
-            <span className="pf-tab-label">{p.title}</span>
-          </button>
-        ))}
-      </div>
-
-      {/* Info bar */}
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          gap: 16,
-          alignItems: "flex-start",
-          marginBottom: 20,
-        }}
-      >
-        <div style={{ flex: 1, minWidth: 260 }}>
-          <h3
-            style={{
-              fontSize: 22,
-              fontWeight: 700,
-              color: COLORS.text,
-              fontFamily: FONT,
-              margin: "0 0 4px",
-            }}
-          >
-            {project.title}
-          </h3>
-          <p
-            style={{
-              fontSize: 13,
-              color: project.color,
-              fontFamily: FONT,
-              fontWeight: 600,
-              margin: "0 0 10px",
-            }}
-          >
-            {project.tagline}
-          </p>
-          <p
-            style={{
-              fontSize: 14,
-              lineHeight: 1.7,
-              color: COLORS.textDim,
-              fontFamily: FONT,
-              margin: 0,
-              maxWidth: 520,
-            }}
-          >
-            {project.description}
-          </p>
-        </div>
-
-        <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-          <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-            {project.tags.map((t) => (
-              <span
-                key={t}
-                style={{
-                  fontSize: 11,
-                  fontWeight: 600,
-                  fontFamily: MONO,
-                  padding: "4px 10px",
-                  borderRadius: 6,
-                  background: project.color + "10",
-                  color: project.color,
-                  letterSpacing: 0.5,
-                }}
-              >
-                {t}
-              </span>
-            ))}
-          </div>
-          <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-            {project.stats.map((s) => (
-              <span
-                key={s}
-                style={{
-                  fontSize: 11,
-                  fontFamily: FONT,
-                  fontWeight: 500,
-                  padding: "4px 10px",
-                  borderRadius: 6,
-                  background: COLORS.bg,
-                  color: COLORS.textDim,
-                }}
-              >
-                {s}
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Iframe viewer */}
-      <div
-        style={{
-          borderRadius: 16,
-          overflow: "hidden",
-          border: `1px solid ${COLORS.border}`,
-          background: COLORS.card,
-          boxShadow: "0 8px 40px rgba(42, 53, 71, 0.08)",
-        }}
-      >
-        {/* Faux browser chrome */}
-        <div
-          style={{
-            padding: "10px 16px",
-            background: COLORS.bg,
-            borderBottom: `1px solid ${COLORS.border}`,
-            display: "flex",
-            alignItems: "center",
-            gap: 10,
-          }}
-        >
-          <div style={{ display: "flex", gap: 6 }}>
-            <div style={{ width: 10, height: 10, borderRadius: "50%", background: "#FF605C" }} />
-            <div style={{ width: 10, height: 10, borderRadius: "50%", background: "#FFBD44" }} />
-            <div style={{ width: 10, height: 10, borderRadius: "50%", background: "#00CA4E" }} />
-          </div>
-          <div
-            style={{
-              flex: 1,
-              background: COLORS.card,
-              borderRadius: 8,
-              padding: "6px 14px",
-              fontSize: 12,
-              fontFamily: MONO,
-              color: COLORS.textDim,
-              border: `1px solid ${COLORS.border}`,
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-              whiteSpace: "nowrap",
-            }}
-          >
-            {url || `${project.id}.vercel.app`}
-          </div>
-        </div>
-
-        {/* Content area */}
-        {url ? (
-          <iframe
-            src={url}
-            title={project.title}
-            style={{
-              width: "100%",
-              height: 600,
-              border: "none",
-              display: "block",
-            }}
-          />
-        ) : (
-          <div
-            style={{
-              height: 500,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: 16,
-              padding: 40,
-            }}
-          >
-            <div
+        {PROJECTS.map((p, i) => {
+          const url = DEPLOY_URLS[p.id];
+          return (
+            <button
+              key={p.id}
+              onClick={() => url && setOpenIdx(i)}
               style={{
-                width: 72,
-                height: 72,
-                borderRadius: 20,
-                background: project.color + "12",
-                border: `1px solid ${project.color}25`,
+                textAlign: "left",
+                padding: 24,
+                borderRadius: 16,
+                border: `1.5px solid ${COLORS.border}`,
+                background: COLORS.card,
+                cursor: url ? "pointer" : "default",
+                transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+                boxShadow: "0 2px 12px rgba(42, 53, 71, 0.04)",
                 display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
+                flexDirection: "column",
+                gap: 14,
+              }}
+              className="pf-project-card"
+              onMouseEnter={(e) => {
+                if (url) {
+                  e.currentTarget.style.borderColor = p.color + "50";
+                  e.currentTarget.style.boxShadow = `0 8px 32px ${p.color}15`;
+                  e.currentTarget.style.transform = "translateY(-4px)";
+                }
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = COLORS.border;
+                e.currentTarget.style.boxShadow = "0 2px 12px rgba(42, 53, 71, 0.04)";
+                e.currentTarget.style.transform = "translateY(0)";
               }}
             >
-              {project.icon}
-            </div>
-            <h4
-              style={{
-                fontSize: 18,
-                fontWeight: 650,
-                color: COLORS.text,
-                fontFamily: FONT,
-                margin: 0,
-              }}
-            >
-              {project.title}
-            </h4>
-            <p
-              style={{
-                fontSize: 14,
-                color: COLORS.textDim,
-                fontFamily: FONT,
-                textAlign: "center",
-                maxWidth: 380,
-                lineHeight: 1.6,
-                margin: 0,
-              }}
-            >
-              Deploy this project to Vercel and add the URL to the{" "}
-              <code
-                style={{
-                  fontFamily: MONO,
-                  fontSize: 12,
-                  background: COLORS.bg,
-                  padding: "2px 6px",
-                  borderRadius: 4,
-                }}
-              >
-                DEPLOY_URLS
-              </code>{" "}
-              config at the top of App.jsx to see the live demo here.
-            </p>
-            <div
-              style={{
-                display: "flex",
-                gap: 6,
-                marginTop: 8,
-              }}
-            >
-              {project.tags.map((t) => (
-                <span
-                  key={t}
+              <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                <div
                   style={{
-                    fontSize: 11,
-                    fontFamily: MONO,
-                    padding: "4px 10px",
-                    borderRadius: 6,
-                    background: project.color + "10",
-                    color: project.color,
-                    fontWeight: 600,
+                    width: 44,
+                    height: 44,
+                    borderRadius: 12,
+                    background: p.color + "12",
+                    border: `1px solid ${p.color}25`,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0,
                   }}
                 >
-                  {t}
-                </span>
-              ))}
-            </div>
-          </div>
-        )}
+                  {p.icon}
+                </div>
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <h3
+                    style={{
+                      fontSize: 16,
+                      fontWeight: 700,
+                      color: COLORS.text,
+                      fontFamily: FONT,
+                      margin: 0,
+                    }}
+                  >
+                    {p.title}
+                  </h3>
+                  <p
+                    style={{
+                      fontSize: 12,
+                      color: p.color,
+                      fontFamily: FONT,
+                      fontWeight: 600,
+                      margin: "2px 0 0",
+                    }}
+                  >
+                    {p.tagline}
+                  </p>
+                </div>
+              </div>
+              <p
+                style={{
+                  fontSize: 13,
+                  lineHeight: 1.65,
+                  color: COLORS.textDim,
+                  fontFamily: FONT,
+                  margin: 0,
+                  display: "-webkit-box",
+                  WebkitLineClamp: 3,
+                  WebkitBoxOrient: "vertical",
+                  overflow: "hidden",
+                }}
+              >
+                {p.description}
+              </p>
+              <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+                {p.tags.map((t) => (
+                  <span
+                    key={t}
+                    style={{
+                      fontSize: 10,
+                      fontWeight: 600,
+                      fontFamily: MONO,
+                      padding: "3px 8px",
+                      borderRadius: 5,
+                      background: p.color + "10",
+                      color: p.color,
+                      letterSpacing: 0.5,
+                    }}
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+              {url && (
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 6,
+                    marginTop: "auto",
+                    paddingTop: 4,
+                    fontSize: 12,
+                    fontWeight: 600,
+                    fontFamily: FONT,
+                    color: p.color,
+                  }}
+                >
+                  <span>View Live Demo</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </div>
+              )}
+            </button>
+          );
+        })}
       </div>
+
+      {/* Full-screen overlay */}
+      {openIdx !== null && (() => {
+        const p = PROJECTS[openIdx];
+        const url = DEPLOY_URLS[p.id];
+        return (
+          <div
+            style={{
+              position: "fixed",
+              inset: 0,
+              zIndex: 9999,
+              background: COLORS.bg,
+              display: "flex",
+              flexDirection: "column",
+              animation: "pf-overlay-in 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+            }}
+          >
+            {/* Top bar */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 12,
+                padding: "10px 20px",
+                background: COLORS.card,
+                borderBottom: `1px solid ${COLORS.border}`,
+                flexShrink: 0,
+              }}
+            >
+              <button
+                onClick={() => setOpenIdx(null)}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 8,
+                  padding: "8px 16px",
+                  borderRadius: 10,
+                  border: `1.5px solid ${COLORS.border}`,
+                  background: COLORS.bg,
+                  color: COLORS.text,
+                  fontSize: 13,
+                  fontWeight: 600,
+                  fontFamily: FONT,
+                  cursor: "pointer",
+                  transition: "all 0.2s ease",
+                  flexShrink: 0,
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = COLORS.card;
+                  e.currentTarget.style.borderColor = COLORS.borderHover;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = COLORS.bg;
+                  e.currentTarget.style.borderColor = COLORS.border;
+                }}
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
+                Back to Portfolio
+              </button>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 8,
+                  flex: 1,
+                  minWidth: 0,
+                }}
+              >
+                <div
+                  style={{
+                    width: 28,
+                    height: 28,
+                    borderRadius: 8,
+                    background: p.color + "12",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0,
+                  }}
+                >
+                  {p.icon}
+                </div>
+                <span
+                  style={{
+                    fontSize: 14,
+                    fontWeight: 650,
+                    color: COLORS.text,
+                    fontFamily: FONT,
+                    whiteSpace: "nowrap",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                  }}
+                >
+                  {p.title}
+                </span>
+                <span
+                  style={{
+                    fontSize: 12,
+                    color: COLORS.textDim,
+                    fontFamily: MONO,
+                    marginLeft: 4,
+                    whiteSpace: "nowrap",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                  }}
+                >
+                  {url}
+                </span>
+              </div>
+              {/* prev / next */}
+              <div style={{ display: "flex", gap: 4, flexShrink: 0 }}>
+                <button
+                  onClick={() => setOpenIdx((openIdx - 1 + PROJECTS.length) % PROJECTS.length)}
+                  aria-label="Previous project"
+                  style={{
+                    width: 34,
+                    height: 34,
+                    borderRadius: 8,
+                    border: `1px solid ${COLORS.border}`,
+                    background: COLORS.bg,
+                    color: COLORS.textDim,
+                    cursor: "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: 16,
+                  }}
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+                </button>
+                <button
+                  onClick={() => setOpenIdx((openIdx + 1) % PROJECTS.length)}
+                  aria-label="Next project"
+                  style={{
+                    width: 34,
+                    height: 34,
+                    borderRadius: 8,
+                    border: `1px solid ${COLORS.border}`,
+                    background: COLORS.bg,
+                    color: COLORS.textDim,
+                    cursor: "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: 16,
+                  }}
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                </button>
+              </div>
+            </div>
+            {/* Iframe fills remaining space */}
+            <iframe
+              src={url}
+              title={p.title}
+              style={{
+                flex: 1,
+                width: "100%",
+                border: "none",
+                display: "block",
+              }}
+            />
+          </div>
+        );
+      })()}
     </section>
   );
 }
@@ -1830,7 +1871,6 @@ function Contact() {
             </svg>
             LinkedIn
           </a>
-
           <div
             style={{
               display: "flex",
@@ -1849,12 +1889,20 @@ function Contact() {
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.accent} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
             </svg>
-            (868) 366-6017
+            +1 (868) 780-9465
           </div>
         </div>
 
-        <p style={{ fontSize: 12, color: COLORS.sage, fontFamily: FONT }}>
-          Built with React + Vite &middot; Deployed on Vercel
+        <p
+          style={{
+            fontSize: 13,
+            color: COLORS.textDim,
+            fontFamily: MONO,
+            marginTop: 48,
+            letterSpacing: 0.5,
+          }}
+        >
+          Designed & built with React — Devika Ramkaran © {new Date().getFullYear()}
         </p>
       </div>
     </section>
@@ -1862,7 +1910,7 @@ function Contact() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   RESPONSIVE STYLES
+   GLOBAL STYLES
    ═══════════════════════════════════════════════════════════════ */
 function GlobalStyles() {
   return (
@@ -1883,8 +1931,7 @@ function GlobalStyles() {
 
       @media (max-width: 768px) {
         .pf-nav-links { display: none !important; }
-        .pf-project-tabs { gap: 6px !important; }
-        .pf-tab-label { display: none; }
+        .pf-project-grid { grid-template-columns: 1fr !important; }
         .pf-contact-grid { flex-direction: column !important; align-items: center !important; }
         .pf-certs-grid { grid-template-columns: 1fr !important; }
       }
@@ -1895,8 +1942,14 @@ function GlobalStyles() {
         .pf-nav-name { display: none; }
       }
 
+      @keyframes pf-overlay-in {
+        from { opacity: 0; transform: translateY(12px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
       @media (prefers-reduced-motion: reduce) {
         html { scroll-behavior: auto; }
+        * { animation-duration: 0.01ms !important; }
       }
     `}</style>
   );
