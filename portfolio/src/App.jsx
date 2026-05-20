@@ -43,7 +43,7 @@ const PROJECTS = [
     description:
       "A prototype I designed to show how I'd centralize executive support — calendar, inbox, tasks, and stakeholder comms in one dashboard. Built to demonstrate the kind of command center I'd set up on day one.",
     tags: ["React", "Dashboard", "Real-time"],
-    stats: ["4 modules", "Live data", "Keyboard nav"],
+    stats: ["4 modules", "Real-time UI", "Keyboard nav"],
     color: COLORS.accent,
     icon: (
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
