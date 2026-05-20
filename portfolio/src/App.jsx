@@ -401,12 +401,26 @@ const CERT_ICONS = {
   ),
   pmi: (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-      <polygon points="12,2 22,20 2,20" fill="#1A1F71"/>
+      {/* PMI geometric mark */}
+      {/* Orange bowtie - top right */}
+      <path d="M13 1l5 5-5 5Z" fill="#FF5722"/>
+      <path d="M23 1l-5 5 5 5Z" fill="#FF5722"/>
+      {/* Cyan I-beam - bottom left */}
+      <rect x="1" y="13" width="10" height="3" fill="#00BCD4"/>
+      <rect x="3.5" y="16" width="5" height="2" fill="#00BCD4"/>
+      <rect x="1" y="18" width="10" height="3" fill="#00BCD4"/>
+      {/* Purple striped block - bottom right */}
+      <rect x="13" y="13" width="10" height="10" fill="#7B1FA2"/>
+      <line x1="13" y1="17" x2="17" y2="13" stroke="rgba(0,0,0,0.3)" strokeWidth="1.5"/>
+      <line x1="13" y1="20.5" x2="20.5" y2="13" stroke="rgba(0,0,0,0.3)" strokeWidth="1.5"/>
+      <line x1="15" y1="23" x2="23" y2="15" stroke="rgba(0,0,0,0.3)" strokeWidth="1.5"/>
+      <line x1="18.5" y1="23" x2="23" y2="18.5" stroke="rgba(0,0,0,0.3)" strokeWidth="1.5"/>
     </svg>
   ),
   coursera: (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="#0056D2">
-      <path d="M11.374 23.977c-4.183-.21-8.006-2.626-9.959-6.347-2.097-3.858-1.871-8.864.732-12.454C4.748 1.338 9.497-.698 14.281.23c4.583.857 8.351 4.494 9.358 8.911 1.122 4.344-.423 9.173-3.925 12.04-2.289 1.953-5.295 2.956-8.34 2.797zm7.705-8.05a588.737 588.737 0 0 0-3.171-1.887c-.903 1.483-2.885 2.248-4.57 1.665-2.024-.639-3.394-2.987-2.488-5.134.801-2.009 2.79-2.707 4.357-2.464a4.19 4.19 0 0 1 2.623 1.669c1.077-.631 2.128-1.218 3.173-1.855-2.03-3.118-6.151-4.294-9.656-2.754-3.13 1.423-4.89 4.68-4.388 7.919.54 3.598 3.73 6.486 7.716 6.404a7.664 7.664 0 0 0 6.404-3.563z"/>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+      <rect width="24" height="24" rx="4" fill="#0056D2"/>
+      <path d="M12.5 5.5C8.36 5.5 5 8.86 5 13s3.36 7.5 7.5 7.5c2.5 0 4.7-1.2 6.1-3.1l-2.2-1.5c-.9 1.2-2.3 1.9-3.9 1.9-2.8 0-4.9-2.2-4.9-4.8 0-2.6 2.1-4.8 4.9-4.8 1.6 0 3 .7 3.9 1.9l2.2-1.5c-1.4-1.9-3.6-3.1-6.1-3.1z" fill="#fff"/>
     </svg>
   ),
   efset: (
@@ -2082,12 +2096,9 @@ function GlobalStyles() {
   );
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   APP
-   ═══════════════════════════════════════════════════════════════ */
 export default function App() {
   return (
-    <div style={{ minHeight: "100vh", fontFamily: FONT }}>
+    <>
       <GlobalStyles />
       <Nav />
       <Hero />
@@ -2098,6 +2109,6 @@ export default function App() {
       <CertsSection />
       <ExperienceSection />
       <Contact />
-    </div>
+    </>
   );
 }
