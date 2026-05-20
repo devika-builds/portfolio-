@@ -41,7 +41,7 @@ const PROJECTS = [
     title: "EA Control Center",
     tagline: "The command hub for executive support",
     description:
-      "A unified operations dashboard combining calendar management, inbox triage, task tracking, and stakeholder communication into one interface. Demonstrates how an EA turns scattered tools into a single nerve center.",
+      "A prototype I designed to show how I'd centralize executive support — calendar, inbox, tasks, and stakeholder comms in one dashboard. Built to demonstrate the kind of command center I'd set up on day one.",
     tags: ["React", "Dashboard", "Real-time"],
     stats: ["4 modules", "Live data", "Keyboard nav"],
     color: COLORS.accent,
@@ -59,7 +59,7 @@ const PROJECTS = [
     title: "Zapier Workflow Visualizer",
     tagline: "Automation logic, made visible",
     description:
-      "Four production Zapier workflows rendered as interactive SVG diagrams. Each node reveals trigger conditions, app connections, data mapping, and time saved. Built to show that automation isn't a black box — it's a system I designed.",
+      "Four Zapier workflows I architected, rendered as interactive SVG diagrams. Each node shows trigger logic, app connections, and projected time savings. Built to show how I think about automation — not as a black box, but as a system I'd design and document for any team.",
     tags: ["React", "SVG", "Zapier"],
     stats: ["13+ hrs saved/wk", "4 workflows", "24 steps"],
     color: "#FF4F00",
@@ -75,7 +75,7 @@ const PROJECTS = [
     title: "Schedule Conflict Resolver",
     tagline: "Calendar chaos, sorted in seconds",
     description:
-      "An intelligent scheduling tool that detects overlapping meetings, suggests resolutions based on priority and attendee availability, and shows the before/after calendar side by side. The kind of problem an EA solves ten times a day — now systematized.",
+      "A prototype for the scheduling problem every EA knows — overlapping meetings, competing priorities, no clear resolution. I built this to show how I'd systematize conflict detection and resolution instead of solving it manually ten times a day.",
     tags: ["React", "Algorithm", "Calendar"],
     stats: ["Conflict detection", "Priority scoring", "Side-by-side view"],
     color: "#2D8B6F",
@@ -94,7 +94,7 @@ const PROJECTS = [
     title: "Operations Analytics Dashboard",
     tagline: "Operational performance, quantified",
     description:
-      "A four-tab analytics dashboard tracking email throughput, task completion, calendar utilization, and time allocation. Includes a pattern-detection engine that surfaces anomalies and trends — turning raw admin data into executive-ready insights.",
+      "A dashboard prototype tracking the metrics I believe every ops role should monitor — email throughput, task completion, calendar utilization, and time allocation. Includes a pattern engine I designed to surface trends that usually go unnoticed.",
     tags: ["React", "Recharts", "Analytics"],
     stats: ["4 metric tabs", "Insight engine", "Week-over-week"],
     color: "#4A6FA5",
@@ -112,7 +112,7 @@ const PROJECTS = [
     title: "EA Template Library",
     tagline: "An EA's operating system, templated",
     description:
-      "A browsable, searchable library of 25 ready-to-use templates across travel, meetings, expenses, onboarding, and communications. Each template includes context metadata — when to use, send timing, audience — and copies to clipboard in one click.",
+      "25 templates I wrote for the scenarios I've encountered — travel briefs, meeting agendas, expense reports, onboarding checklists, and exec comms. Each includes context metadata on when and how to use it. One-click copy to clipboard.",
     tags: ["React", "Clipboard API", "Search"],
     stats: ["25 templates", "5 categories", "1-click copy"],
     color: COLORS.critical,
