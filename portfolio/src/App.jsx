@@ -311,7 +311,8 @@ const TOOLS = [
     color: "#D97757",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M16.98 9.01l-4.3 8.18a.56.56 0 01-1.01-.04L8.6 10.7a.56.56 0 00-.29-.29L1.85 7.34a.56.56 0 01-.04-1.01l8.18-4.3a.56.56 0 01.53 0l8.18 4.3c.36.19.45.65.22.97a.56.56 0 01-.22.22z" fill="#D97757" transform="translate(2.5 3)"/>
+        <rect x="2" y="2" width="20" height="20" rx="6" fill="#D97757"/>
+        <text x="12" y="16.5" textAnchor="middle" fill="white" fontSize="13" fontWeight="700" fontFamily="system-ui">C</text>
       </svg>
     ),
   },
@@ -320,19 +321,22 @@ const TOOLS = [
     color: "#10A37F",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M22.28 9.37a6.4 6.4 0 00-.55-5.26A6.47 6.47 0 0014.73.8a6.4 6.4 0 00-4.87-2.01 6.47 6.47 0 00-6.14 4.42A6.4 6.4 0 00.5 6.93a6.47 6.47 0 00.8 7.58 6.4 6.4 0 00.55 5.26 6.47 6.47 0 007 3.31 6.4 6.4 0 004.87 2.01 6.47 6.47 0 006.14-4.42 6.4 6.4 0 003.22-3.72 6.47 6.47 0 00-.8-7.58z" fill="#10A37F" transform="translate(0.5 0.5) scale(0.92)"/>
-        <path d="M10.08 20.07a4.8 4.8 0 01-3.08-1.12l.05-2.76 3.76 2.17v2.48a4.74 4.74 0 01-.73.23zm.92-3.8L7.24 14.1V9.77l3.76 2.17v4.33zm.92.6l3.76-2.17v-4.33L12 12.54v4.33h-.08zm4.68-3.37a4.8 4.8 0 01-1.12 3.08l-2.39-1.38 3.76-2.17-.25.47z" fill="white" transform="translate(0.5 0.5) scale(0.92)"/>
+        <rect x="2" y="2" width="20" height="20" rx="6" fill="#10A37F"/>
+        <path d="M12 7a5 5 0 00-3.54 8.54l-.46 2.46 2.46-.46A5 5 0 1012 7z" fill="none" stroke="white" strokeWidth="1.5"/>
+        <circle cx="9.5" cy="12" r="0.8" fill="white"/>
+        <circle cx="12" cy="12" r="0.8" fill="white"/>
+        <circle cx="14.5" cy="12" r="0.8" fill="white"/>
       </svg>
     ),
   },
   {
     name: "Gemini",
-    color: "#4285F4",
+    color: "#886FBF",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M12 2C12 2 12 12 2 12C12 12 12 22 12 22C12 22 12 12 22 12C12 12 12 2 12 2Z" fill="url(#gemGrad)"/>
+        <path d="M12 2c0 5.52-4.48 10-10 10 5.52 0 10 4.48 10 10 0-5.52 4.48-10 10-10-5.52 0-10-4.48-10-10z" fill="url(#gemiGrad)"/>
         <defs>
-          <linearGradient id="gemGrad" x1="2" y1="2" x2="22" y2="22">
+          <linearGradient id="gemiGrad" x1="2" y1="2" x2="22" y2="22">
             <stop offset="0%" stopColor="#4285F4"/>
             <stop offset="50%" stopColor="#9B72CB"/>
             <stop offset="100%" stopColor="#D96570"/>
