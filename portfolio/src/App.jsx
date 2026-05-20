@@ -1112,7 +1112,7 @@ function ProjectShowcase() {
     <section
       id="work"
       ref={ref}
-      style={{ padding: "96px 24px", maxWidth: 1100, margin: "0 auto" }}
+      className="pf-projects-section" style={{ padding: "96px 24px", maxWidth: 1100, margin: "0 auto" }}
     >
       <div
         style={{
@@ -1315,13 +1315,14 @@ function ProjectShowcase() {
           >
             {/* Top bar */}
             <div
+              className="pf-overlay-bar"
               style={{
                 display: "flex",
                 alignItems: "center",
                 gap: 12,
                 padding: "10px 20px",
                 background: COLORS.card,
-                borderBottom: `1px solid ${COLORS.border}`,
+                borderBottom: \`1px solid \${COLORS.border}\`,
                 flexShrink: 0,
               }}
             >
@@ -1355,7 +1356,7 @@ function ProjectShowcase() {
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M19 12H5M12 19l-7-7 7-7" />
                 </svg>
-                Back to Portfolio
+                <span className="pf-back-text">Back to Portfolio</span>
               </button>
               <div
                 style={{
@@ -1404,7 +1405,7 @@ function ProjectShowcase() {
                     textOverflow: "ellipsis",
                   }}
                 >
-                  {url}
+                  <span className="pf-overlay-url">{url}</span>
                 </span>
               </div>
               {/* prev / next */}
@@ -1558,7 +1559,7 @@ function CertsSection() {
     <section
       id="certs"
       ref={ref}
-      style={{ padding: "96px 24px", maxWidth: 1100, margin: "0 auto" }}
+      className="pf-projects-section" style={{ padding: "96px 24px", maxWidth: 1100, margin: "0 auto" }}
     >
       <div
         style={{
@@ -2075,6 +2076,10 @@ function GlobalStyles() {
         .pf-nav-links { display: none !important; }
         .pf-contact-grid { flex-direction: column !important; align-items: center !important; }
         .pf-certs-grid { grid-template-columns: 1fr !important; }
+        .pf-projects-section { padding: 48px 16px !important; }
+        .pf-overlay-bar { padding: 8px 12px !important; gap: 8px !important; }
+        .pf-back-text { display: none !important; }
+        .pf-overlay-url { display: none !important; }
       }
 
       @media (max-width: 640px) {
