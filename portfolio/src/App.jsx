@@ -339,12 +339,15 @@ const TOOLS = [
 ];
 
 const CERTS = [
-  { name: "EFSET English — C2 Proficiency", issuer: "EF Standard English Test", color: "#1A73E8" },
-  { name: "Google Workspace Essentials", issuer: "Google", color: "#4285F4" },
+  { name: "Career Essentials in Generative AI", issuer: "Microsoft & LinkedIn", color: "#0078D4" },
   { name: "Google Prompting Essentials", issuer: "Google", color: "#34A853" },
-  { name: "Business Analysis & Process Mgmt", issuer: "Professional Development", color: "#6B7FAB" },
-  { name: "Trello Essential Training", issuer: "LinkedIn Learning", color: "#0079BF" },
-  { name: "Project Mgmt Foundations: Schedules", issuer: "LinkedIn Learning", color: "#0A66C2" },
+  { name: "Microsoft 365 Copilot for Work", issuer: "LinkedIn Learning", color: "#0A66C2" },
+  { name: "Enhance Custom GPTs with Zapier Actions", issuer: "LinkedIn Learning", color: "#FF4A00" },
+  { name: "Governance, Risk, Compliance & Data Privacy", issuer: "IBM", color: "#0530AD" },
+  { name: "Project Mgmt Foundations: Schedules", issuer: "PMI", color: "#1A1F71" },
+  { name: "Business Analysis & Process Management", issuer: "Coursera", color: "#0056D2" },
+  { name: "Google Workspace Tools", issuer: "Google", color: "#4285F4" },
+  { name: "EFSET English — C2 Proficiency", issuer: "EF Standard English Test", color: "#1A73E8" },
 ];
 
 const ACHIEVEMENTS = [
