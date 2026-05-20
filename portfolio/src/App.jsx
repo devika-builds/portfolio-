@@ -1309,6 +1309,7 @@ function ProjectShowcase() {
             <iframe
               src={url}
               title={p.title}
+              allow="clipboard-write"
               style={{
                 flex: 1,
                 width: "100%",
