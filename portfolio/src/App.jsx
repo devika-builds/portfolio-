@@ -1322,7 +1322,7 @@ function ProjectShowcase() {
                 gap: 12,
                 padding: "10px 20px",
                 background: COLORS.card,
-                borderBottom: \`1px solid \${COLORS.border}\`,
+                borderBottom: `1px solid ${COLORS.border}`,
                 flexShrink: 0,
               }}
             >
